@@ -51,7 +51,7 @@ CI (once repo is public)
 
 This project aims to build a Python HTML Validator that utilises the [W3C HTML validator API](https://github.com/validator/validator/wiki/Service-%C2%BB-Input-%C2%BB-POST-body).
 
-The main motivation behind this for me is that as part of my Open University [Degree](https://www.open.ac.uk/courses/computing-it/degrees/bsc-computing-it-software-q62-soft) one of my [modules](https://www.open.ac.uk/courses/qualifications/details/tt284?orig=q62-soft&setAcc=true) focused about web technologies. Part of the practical activities for which were that to manually valid HTML using [W3C's manual validator](https://validator.w3.org/).
+The main motivation behind this for me is that as part of my Open University [Degree](https://www.open.ac.uk/courses/computing-it/degrees/bsc-computing-it-software-q62-soft) one of my [modules](https://www.open.ac.uk/courses/qualifications/details/tt284?orig=q62-soft&setAcc=true) focused about web technologies. Part of the practical activities for which were to manually valid HTML using [W3C's manual validator](https://validator.w3.org/).
 
 As an experienced DevOps Engineer this seemed horribly inefficient to me, so I decided to make this little piece of code so I could build a CI on my (_private_) module repo to do the HTML validation for me :)
 
@@ -171,8 +171,6 @@ Project Link: [W3C HTML Python Validator](https://github.com/Sudoblark/w3c-html-
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 <p align="right">(<a href="#top">back to top</a>)</p>
