@@ -119,6 +119,28 @@ Some caveats:
 
 2. CircleCI
 
+See below for CircleCI yaml that will validate all HTML files in a repo:
+
+```yaml
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.9.4
+    steps:
+      - checkout
+      - run:
+          name: Clone w3c-html-python-validator
+          command: git clone https://github.com/Sudoblark/w3c-html-python-validator.git ~/w3c-html-python-validator
+      - run:
+          name: Install Python test dependencies
+          command: sudo /home/circleci/.pyenv/shims/pip3.9 install -r ~/w3c-html-python-validator/requirements.txt
+      - run:
+          # Note clones of parent repo are in ~/project
+          name: Run w3c-html-python-validator against local repo
+          command: sudo /home/circleci/.pyenv/shims/python3.9 ~/w3c-html-python-validator/src/main.py "/home/circleci/project"
+```
+
 TBC once repo goes public and private repo is setup with CI
 
 
