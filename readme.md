@@ -1,8 +1,7 @@
 <div id="top"></div>
 
 <!-- PROJECT SHIELDS -->
-TO-DO add shields: 
-CI (once repo is public)
+[![CircleCI status](https://circleci.com/gh/sudoblark/w3c-html-python-validator.svg?style=svg)](https://app.circleci.com/pipelines/github/Sudoblark/w3c-html-python-validator)
 
 
 
