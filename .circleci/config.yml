@@ -11,4 +11,4 @@ jobs:
       - run:
           command: | # Run PyTest
             cd tests
-            python3 pytest
+            python3 -m pytest
