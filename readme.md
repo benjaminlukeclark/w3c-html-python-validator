@@ -2,8 +2,7 @@
 
 <!-- PROJECT SHIELDS -->
 TO-DO add shields: 
-CI
-PyPI?
+CI (once repo is public)
 
 
 
@@ -54,9 +53,11 @@ This project aims to build a Python HTML Validator that utilises the [W3C HTML v
 
 The main motivation behind this for me is that as part of my Open University [Degree](https://www.open.ac.uk/courses/computing-it/degrees/bsc-computing-it-software-q62-soft) one of my [modules](https://www.open.ac.uk/courses/qualifications/details/tt284?orig=q62-soft&setAcc=true) focused about web technologies. Part of the practical activities for which were that to manually valid HTML using [W3C's manual validator](https://validator.w3.org/).
 
-As an experienced DevOps Engineer this seemed horribly inefficient to me, so I decided to make this little piece of code so I could build a CI on my module repo to do the HTML validation for me :)
+As an experienced DevOps Engineer this seemed horribly inefficient to me, so I decided to make this little piece of code so I could build a CI on my (_private_) module repo to do the HTML validation for me :)
 
-Of course sending your raw HTML over the web isn't great either, but downloading the validator locally seemed overkill as a nice addon to my Uni work.
+Some caveats:
+- Sending your raw HTML over the web isn't great, but downloading the validator locally seemed overkill as a nice addon to my Uni work
+- Error formatting could be nicer but as a mainly personal project it's good enough for me
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -65,6 +66,9 @@ Of course sending your raw HTML over the web isn't great either, but downloading
 ### Built With
 
 * [pathlib](https://docs.python.org/3/library/pathlib.html)
+* [PyTest](https://docs.pytest.org/en/6.2.x/)
+* [urllib](https://docs.python.org/3/library/urllib.html)
+* [json](https://docs.python.org/3/library/json.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -73,41 +77,60 @@ Of course sending your raw HTML over the web isn't great either, but downloading
 <!-- GETTING STARTED -->
 ## Getting Started
 
-TBC how to run locally
 
 ### Prerequisites
 
-LIST OF STUFF NEEDED BEFORE CAN RUN LOCALLY
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* Python 3.9.7
 
 ### Installation
+1. Clone repo
 
-STEP BY STEP OF RUNNING LOCALLY
+  ```sh
+  git clone https://github.com/Sudoblark/w3c-html-python-validator
+  ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+2. Setup venv
 
+  ```sh
+  python3 -m venv venv
+  venv\activate
+  ```
+3. Install requirements when in venv
 
+  ```sh
+  pip install -r requirements.txt
+  ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-ADD EXAMPLE OF CI IN UNI REPO
+1. Local windows machine
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+  ```sh
+  (venv) PS D:\Github\w3c-html-python-validator\src> python3 .\main.py ../tests/test_files
+  ('{"../tests/test_files/indent_0/valid.html": {"result": "HTML validate"}, '
+   '"../tests/test_files/indent_0/indent_1/invalid.html": {"result": "Invalid '
+   'HTML, one or more errors reported", "errors": [{"type": "error", "line": 12, '
+   '"column": 7, "message": "End of file seen when expecting text or an end '
+   'tag.", "extract": "dy>\\n</html>"}, {"type": "error", "line": 7, "column": '
+   '9, "message": "Unclosed element \\u201ctitle\\u201d.", "extract": " '
+   'Name\\">\\n  <title>HTML5 "}]}}')
+  One of more HTML files failed validation
+  ```
 
+2. CircleCI
+
+TBC once repo goes public and private repo is setup with CI
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
 - [ ] Add CSS validation as well (requires repo rename)
+- [ ] Make a pretty `setup.py` and setup CI to publish to PyPI
+- [ ] Add badges
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -124,7 +147,6 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- LICENSE -->
@@ -155,8 +177,3 @@ Use this space to list resources you find helpful and would like to give credit 
 * [othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-TBC
