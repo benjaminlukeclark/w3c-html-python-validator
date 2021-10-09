@@ -172,5 +172,6 @@ Project Link: [W3C HTML Python Validator](https://github.com/Sudoblark/w3c-html-
 ## Acknowledgments
 
 * [othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
