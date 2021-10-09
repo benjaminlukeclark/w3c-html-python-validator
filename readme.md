@@ -1,7 +1,7 @@
 <div id="top"></div>
 
 <!-- PROJECT SHIELDS -->
-[![CircleCI status](https://circleci.com/gh/sudoblark/w3c-html-python-validator.svg?style=svg)](https://app.circleci.com/pipelines/github/Sudoblark/w3c-html-python-validator)
+[![Sudoblark](https://circleci.com/gh/Sudoblark/w3c-html-python-validator.svg?style=shield)](https://app.circleci.com/pipelines/github/Sudoblark/w3c-html-python-validator)
 
 
 
