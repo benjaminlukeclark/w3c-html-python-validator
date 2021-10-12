@@ -1,14 +1,36 @@
 version: 2.1
 jobs:
-  build: # No workflows yet, so just a build job for now
+  unit-testing:
     docker:
       - image: circleci/python:3.6.4  # primary container for the build job
     steps:
       - checkout # check out the code in the project directory
       - run:
-          command : | # Install dependencies
+          name: Install dependencies
+          command : |
             sudo pip install -r requirements.txt
       - run:
-          command: | # Run PyTest
+          name: PyTest unit testing
+          command: |
             cd tests
             python3 -m pytest
+
+  behaviour-testing:
+    docker:
+      - image: circleci/python:3.6.4  # primary container for the build job
+    steps:
+      - checkout # check out the code in the project directory
+      - run:
+          name: Install dependencies
+          command : |
+            sudo pip install -r requirements.txt
+      - run:
+          name: Behave! behaviour testing
+          command: |
+             python -m behave
+
+workflows:
+  run-tests:
+    jobs:
+      - unit-testing
+      - behaviour-testing

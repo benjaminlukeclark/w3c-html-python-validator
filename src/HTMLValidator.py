@@ -16,7 +16,7 @@ class HTMLValidator:
         :param path_to_file: WindowsPath (or equal) reference to a file
         :return:  blank JSON for valid HTML, otherwise returns array of JSON error messages
         """
-        return self.__call_w3_validator(bytes(path_to_file.open().read(), "utf-8"))
+        return self.__call_w3_validator(bytes(open(path_to_file).read(), "utf-8"))
 
     def __add_headers_to_validator(self, request_object):
         """
