@@ -80,21 +80,36 @@ Some caveats:
 ### Prerequisites
 
 * Python 3.9.7
+* python3-virtualenv if running Linux
 
 ### Installation
-1. Clone repo
+* Clone repo
 
   ```sh
   git clone https://github.com/Sudoblark/w3c-html-python-validator
   ```
 
-2. Setup venv
+* Setup venv
+    * Windows
 
-  ```sh
-  python3 -m venv venv
-  venv\activate
-  ```
-3. Install requirements when in venv
+      ```sh
+      python3 -m venv venv
+      .\venv\Scripts\activate
+      ```
+    * MacOS
+    
+        ```sh
+        python3 -m venv venv
+        source venv/bin/activate
+        ```
+      
+    * Linux (tested on Ubuntu 20.04 LTS)
+        ```sh
+        virtualenv venv
+        source venv/bin/activate
+        ```
+      
+* Install requirements when in venv
 
   ```sh
   pip install -r requirements.txt
@@ -103,21 +118,39 @@ Some caveats:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Local windows machine
+* Local windows 10 machine
 
-  ```sh
-  (venv) PS D:\Github\w3c-html-python-validator\src> python3 .\main.py ../tests/test_files
-  ('{"../tests/test_files/indent_0/valid.html": {"result": "HTML validate"}, '
-   '"../tests/test_files/indent_0/indent_1/invalid.html": {"result": "Invalid '
-   'HTML, one or more errors reported", "errors": [{"type": "error", "line": 12, '
-   '"column": 7, "message": "End of file seen when expecting text or an end '
-   'tag.", "extract": "dy>\\n</html>"}, {"type": "error", "line": 7, "column": '
-   '9, "message": "Unclosed element \\u201ctitle\\u201d.", "extract": " '
-   'Name\\">\\n  <title>HTML5 "}]}}')
-  One of more HTML files failed validation
-  ```
+```sh
+.\venv\Scripts\activate
+python3 .\src\main.py .\tests\test_files\
+  
+('{"../tests/test_files/indent_0/valid.html": {"result": "HTML validate"}, '
+'"../tests/test_files/indent_0/indent_1/invalid.html": {"result": "Invalid '
+'HTML, one or more errors reported", "errors": [{"type": "error", "line": 12, '
+'"column": 7, "message": "End of file seen when expecting text or an end '
+'tag.", "extract": "dy>\\n</html>"}, {"type": "error", "line": 7, "column": '
+'9, "message": "Unclosed element \\u201ctitle\\u201d.", "extract": " '
+'Name\\">\\n  <title>HTML5 "}]}}')
+One of more HTML files failed validation
+```
+  
+* Local MacOS / Local Linux (tested on Ubuntu 20.04 LTS)
 
-2. CircleCI
+```sh
+source venv/bin/activate
+python3 src/main.py tests/test_files  
+
+('{"../tests/test_files/indent_0/valid.html": {"result": "HTML validate"}, '
+'"../tests/test_files/indent_0/indent_1/invalid.html": {"result": "Invalid '
+'HTML, one or more errors reported", "errors": [{"type": "error", "line": 12, '
+'"column": 7, "message": "End of file seen when expecting text or an end '
+'tag.", "extract": "dy>\\n</html>"}, {"type": "error", "line": 7, "column": '
+'9, "message": "Unclosed element \\u201ctitle\\u201d.", "extract": " '
+'Name\\">\\n  <title>HTML5 "}]}}')
+One of more HTML files failed validation
+```
+    
+* CircleCI
 
 See below for CircleCI yaml that will validate all HTML files in a repo:
 
@@ -141,15 +174,13 @@ jobs:
           command: sudo /home/circleci/.pyenv/shims/python3.9 ~/w3c-html-python-validator/src/main.py "/home/circleci/project"
 ```
 
-TBC once repo goes public and private repo is setup with CI
-
 
 <!-- ROADMAP -->
 ## Roadmap
 
 - [ ] Add CSS validation as well (requires repo rename)
 - [ ] Make a pretty `setup.py` and setup CI to publish to PyPI
-- [ ] Add badges
+- [x] Add badges
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
